@@ -27,17 +27,13 @@ Perl module.
 [LibYAML]: http://pyyaml.org/wiki/LibYAML
 [YAML::LibYAML]: http://search.cpan.org/~nuffin/YAML-LibYAML
 
-Author
-------
-
-Andrew Danforth <acd@weirdness.net>
-
-If you are using this module successfully I would love to hear from you.
-
 Copyright
 ---------
 
+Copyright (c) 2012, Craig Barnes
 Copyright (c) 2009, Andrew Danforth
+
+Licensed under the MIT license.
 
 Thanks
 ------
