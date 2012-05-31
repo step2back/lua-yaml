@@ -30,8 +30,8 @@ Perl module.
 Copyright
 ---------
 
-Copyright (c) 2012, Craig Barnes
-Copyright (c) 2009, Andrew Danforth
+* Copyright (c) 2012, Craig Barnes
+* Copyright (c) 2009, Andrew Danforth
 
 Licensed under the MIT license.
 
