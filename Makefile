@@ -1,34 +1,28 @@
-# Default installation prefix
-PREFIX=/usr
+PREFIX = /usr/local
+LIBDIR = $(PREFIX)/lib/lua/5.1
 
-# System's libraries directory (where binary libraries are installed)
-LUA_LIBDIR=$(PREFIX)/lib/lua/5.1
+CC = gcc
+CFLAGS = -O2 -Wall -shared -fPIC
+LDFLAGS = -shared -fPIC -lyaml
 
-# System's lua directory (where Lua libraries are installed)
-LUA_DIR=$(PREFIX)/share/lua/5.1
+OBJS = lyaml.o b64.o
 
-LUAINC=$(PREFIX)/include
-LUALIB=$(PREFIX)/lib
+all: yaml.so
 
-CC=gcc
-# -fexceptions is necessary if your Lua was built with a C++ compiler and 
-# uses exceptions internally; can be removed
-CFLAGS=-O2 -Wall $(INC) -shared -fPIC -fexceptions
-LDFLAGS=-shared -L$(LUALIB)
-INC=-I$(LUAINC)
+yaml.so: $(OBJS)
+	$(CC) $(LDFLAGS) -o $@ $^
 
-OBJS=lyaml.o api.o dumper.o emitter.o loader.o parser.o reader.o scanner.o writer.o b64.o
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-all:    yaml.so
-
-install:
-	cp -f yaml.so $(LUA_LIBDIR)
+install: all
+	install -Dpm0755 yaml.so $(DESTDIR)$(LIBDIR)/yaml.so
 
 uninstall:
-	rm -f $(LUA_LIBDIR)/yaml.so 
-        
-yaml.so: $(OBJS)
-	$(CC) -o $@ $(LDFLAGS) $(OBJS)
+	$(RM) $(DESTDIR)$(LIBDIR)/yaml.so
 
 clean:
-	rm -f $(OBJS) yaml.so core core.* a.out
+	$(RM) $(OBJS) yaml.so
+
+
+.PHONY: all install uninstall clean

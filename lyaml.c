@@ -26,6 +26,8 @@
  * 
  */
 
+#include <yaml.h>
+
 #include <string.h>
 #include <stdlib.h>
 
@@ -33,7 +35,6 @@
 #include <lua.h>
 #include <lualib.h>
 
-#include "yaml.h"
 #include "b64.h"
 
 /* configurable flags */
