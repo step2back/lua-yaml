@@ -25,17 +25,25 @@ global `yaml` table.
 History
 -------
 
-* 0.2: November 23 2009
-  + Updated libyaml to version 0.1.3
-  + Now properly dumps and loads strings containing binary data using base64
-  + Dumped strings are quoted when they could be loaded as numbers
-  + Nulls are loaded as `yaml.null`, a function that returns itself and can
-    be used to test for equality
-  + Load now also recognizes `yes` as a boolean truth value
-  + Zero length scalars are not converted to `nil`
+#### v0.3 - June 01 2012
 
-* 0.1: May 12 2009
-  + Initial release
+* Remove bundled copy of LibYAML
+* Fix Makefile to link against system copy of LibYAML and support `DESTDIR`
+* Clean up README and reformat as Markdown
+
+#### v0.2 - November 23 2009
+
+* Updated LibYAML to version 0.1.3
+* Now properly dumps and loads strings containing binary data using base64
+* Dumped strings are quoted when they could be loaded as numbers
+* Nulls are loaded as `yaml.null`, a function that returns itself and can
+  be used to test for equality
+* Load now also recognizes `yes` as a boolean truth value
+* Zero length scalars are not converted to `nil`
+
+#### v0.1 - May 12 2009
+
+* Initial release
 
 License
 -------
