@@ -3,24 +3,19 @@ lua-yaml
 
 Lua [YAML] serialization using [LibYAML].
 
-Description
------------
-
-This module is a Lua binding for Kirill Siminov's excellent [LibYAML].
-LibYAML is generally considered to be the best C YAML 1.1 implementation.
-
-This module defines the functions dump, load, and configure within the
-global `yaml` table.
-
-Portions of this software were inspired by Ingy döt Net's [YAML::LibYAML]
-Perl module.
-
 [YAML]: http://yaml.org/
 [LibYAML]: http://pyyaml.org/wiki/LibYAML
-[YAML::LibYAML]: http://search.cpan.org/~nuffin/YAML-LibYAML
+
+Installation
+------------
+
+    make && sudo make install PREFIX=/usr/local
 
 Usage
 -----
+
+The module defines the functions `dump`, `load`, and `configure` within the
+global `yaml` table.
 
     require 'yaml'
 
@@ -74,3 +69,6 @@ Thanks to the following people for suggestions and patches:
 * Peter Mawhorter
 * Cyril Romain
 * Adrian Sampson
+
+Portions of this software were inspired by Ingy döt Net's
+[YAML::LibYAML](http://search.cpan.org/~nuffin/YAML-LibYAML) Perl module.
