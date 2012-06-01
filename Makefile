@@ -5,24 +5,20 @@ CC = gcc
 CFLAGS = -O2 -Wall -shared -fPIC
 LDFLAGS = -shared -fPIC -lyaml
 
-OBJS = lyaml.o b64.o
-
-all: yaml.so
-
-yaml.so: $(OBJS)
+yaml.so: lyaml.o b64.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-install: all
-	install -Dpm0755 yaml.so $(DESTDIR)$(LIBDIR)/yaml.so
+install: yaml.so
+	install -Dpm0755 $< $(DESTDIR)$(LIBDIR)/$<
 
 uninstall:
 	$(RM) $(DESTDIR)$(LIBDIR)/yaml.so
 
 clean:
-	$(RM) $(OBJS) yaml.so
+	$(RM) *.o yaml.so
 
 
-.PHONY: all install uninstall clean
+.PHONY: install uninstall clean
